@@ -18,7 +18,7 @@ class handler(BaseHTTPRequestHandler):
         country_data = response.json()
 
         country = country_data[0]["name"]["common"]
-        message = f"The capital of {query_string} is {country}"
+        message = f"{query_string} is the capital of {country}"
       else:
         message = "Valid capital city needed to find which country the city resides."
     except(Exception):
