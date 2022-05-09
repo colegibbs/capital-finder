@@ -5,6 +5,7 @@ import requests
 class handler(BaseHTTPRequestHandler):
 
   def do_GET(self):
+    #taking query string and parsing it into a useful dictionary
     url_components = parse.urlsplit(self.path)
     query_string_list = parse.parse_qsl(url_components.query)
     dic = dict(query_string_list)
