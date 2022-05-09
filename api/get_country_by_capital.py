@@ -5,6 +5,7 @@ import requests
 class handler(BaseHTTPRequestHandler):
 
   def do_GET(self):
+    #taking query string and parsing it into a useful dictionary
     url_components = parse.urlsplit(self.path)
     query_string_list = parse.parse_qsl(url_components.query)
     dic = dict(query_string_list)
@@ -18,7 +19,7 @@ class handler(BaseHTTPRequestHandler):
         country_data = response.json()
 
         country = country_data[0]["name"]["common"]
-        message = f"The capital of {query_string} is {country}"
+        message = f"{query_string} is the capital of {country}"
       else:
         message = "Valid capital city needed to find which country the city resides."
     except(Exception):
